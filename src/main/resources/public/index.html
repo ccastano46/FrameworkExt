@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pedidos solidarios de tigrillo y bolón para apoyar a las personas afectadas por el terremoto.">
+    <title>ECUADOR-IN | Pedidos solidarios</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/app.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+    <div class="site-header__bar">
+        <a class="brand" href="index.html" aria-label="ECUADOR-IN, inicio">
+            <span class="brand__name">ECUADOR-IN</span>
+            <span class="brand__signature">by Camilo</span>
+        </a>
+        <span class="brand__heart" aria-hidden="true">♡</span>
+    </div>
+
+    <div class="hero">
+        <p class="eyebrow">Cocina ecuatoriana con propósito</p>
+        <h1>Un plato que alimenta<br>y también ayuda</h1>
+        <p class="hero__description">
+            Haz tu pedido a domicilio para el próximo domingo y únete a esta iniciativa solidaria.
+        </p>
+        <a class="hero__link" href="#pedido">Hacer mi pedido</a>
+    </div>
+</header>
+
+<main>
+    <section class="campaign" aria-labelledby="campaign-title">
+        <p class="section-kicker">Una iniciativa de corazón</p>
+        <h2 id="campaign-title">Sabores que se convierten en ayuda</h2>
+        <p>
+            Preparamos cada pedido con recetas caseras y mucho sabor. Una parte de los fondos recaudados será destinada a apoyar a las personas afectadas por el terremoto.
+        </p>
+    </section>
+
+    <section class="menu-section" aria-labelledby="menu-title">
+        <div class="section-heading">
+            <p class="section-kicker">Elige tu plato</p>
+            <h2 id="menu-title">Nuestros platos</h2>
+            <p>Selecciona la cantidad de cada opción que deseas recibir.</p>
+        </div>
+
+        <div class="food-grid">
+            <article class="food-card">
+                <figure class="food-card__figure">
+                    <img
+                            class="food-card__image"
+                            src="images/tigrillo.png"
+                            alt="Tigrillo ecuatoriano servido con huevo frito"
+                            width="710"
+                            height="413"
+                    >
+                    <figcaption class="food-card__caption">Tigrillo</figcaption>
+                </figure>
+                <div class="food-card__content">
+                    <p class="food-card__number">01</p>
+                    <h3>Tigrillo</h3>
+                    <p class="food-card__description">
+                        Plátano verde majado con una preparación casera y el auténtico sabor ecuatoriano.
+                    </p>
+                    <label class="quantity-control" for="tigrillo-quantity">
+                        <span>Cantidad</span>
+                        <input id="tigrillo-quantity" name="tigrilloQuantity" type="number" min="0" max="20" value="0" inputmode="numeric" form="order-form">
+                    </label>
+                </div>
+            </article>
+
+            <article class="food-card">
+                <figure class="food-card__figure">
+                    <img
+                            class="food-card__image"
+                            src="images/bolon.png"
+                            alt="Bolón de verde ecuatoriano servido sobre un plato"
+                            width="702"
+                            height="437"
+                    >
+                    <figcaption class="food-card__caption">Bolón</figcaption>
+                </figure>
+                <div class="food-card__content">
+                    <p class="food-card__number">02</p>
+                    <h3>Bolón</h3>
+                    <p class="food-card__description">
+                        Bola de plátano verde preparada con ingredientes de calidad y receta tradicional.
+                    </p>
+                    <label class="quantity-control" for="bolon-quantity">
+                        <span>Cantidad</span>
+                        <input id="bolon-quantity" name="bolonQuantity" type="number" min="0" max="20" value="0" inputmode="numeric" form="order-form">
+                    </label>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="order-section" id="pedido" aria-labelledby="order-title">
+        <div class="order-section__intro">
+            <p class="section-kicker">Pedido a domicilio</p>
+            <h2 id="order-title">Reserva para el <span id="delivery-date">próximo domingo</span></h2>
+            <p>
+                Completa tus datos y te enviaremos el resumen del pedido para confirmarlo por WhatsApp.
+            </p>
+        </div>
+
+        <form class="order-form" id="order-form">
+            <div class="form-grid">
+                <label class="form-field" for="customer-name">
+                    <span>Nombre completo</span>
+                    <input id="customer-name" name="customerName" type="text" autocomplete="name" required>
+                </label>
+
+                <label class="form-field" for="customer-phone">
+                    <span>Teléfono</span>
+                    <input id="customer-phone" name="customerPhone" type="tel" autocomplete="tel" required>
+                </label>
+
+                <label class="form-field form-field--full" for="delivery-address">
+                    <span>Dirección de entrega</span>
+                    <input id="delivery-address" name="deliveryAddress" type="text" autocomplete="street-address" required>
+                </label>
+
+                <label class="form-field form-field--full" for="delivery-reference">
+                    <span>Referencia <small>(opcional)</small></span>
+                    <input id="delivery-reference" name="deliveryReference" type="text" autocomplete="off">
+                </label>
+            </div>
+
+            <p class="delivery-note">
+                Entregas del domingo de 8:00 a. m. a 5:00 p. m. · Solicita tu pedido con mínimo un día de anticipación.
+            </p>
+
+            <button class="submit-button" type="submit">Preparar mi pedido</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="order-result" id="order-result" hidden>
+            <p class="section-kicker">Tu pedido está listo</p>
+            <h3>Revisa el resumen y confírmalo</h3>
+            <p id="order-summary"></p>
+            <a class="whatsapp-link" id="whatsapp-link" href="#" target="_blank" rel="noopener">
+                Confirmar por WhatsApp
+            </a>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <p>ECUADOR-IN <span aria-hidden="true">·</span> by Camilo</p>
+    <p>Pedidos y contacto: <a href="tel:+573183074075">318 307 4075</a></p>
+    <p class="site-footer__cause">Gracias por apoyar esta causa.</p>
+</footer>
+</body>
+</html>

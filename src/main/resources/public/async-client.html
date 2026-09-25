@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cliente asíncrono para probar los servicios del servidor HTTP Java.">
+    <title>Cliente asíncrono | HTTP Server</title>
+    <link rel="stylesheet" href="styles/async-client.css">
+    <script src="scripts/async-client.js" defer></script>
+</head>
+<body>
+<header class="async-header">
+    <div class="async-header__content">
+        <div>
+            <p class="async-eyebrow">ECI · AREM</p>
+            <h1>Cliente asíncrono</h1>
+            <p class="async-header__description">
+                Prueba los servicios del servidor Java sin recargar esta página.
+            </p>
+        </div>
+        <img
+                class="async-header__image"
+                src="images/bolon.png"
+                alt="Bolón ecuatoriano servido en un plato"
+                width="702"
+                height="437"
+        >
+    </div>
+</header>
+
+<main class="async-main">
+    <section class="async-intro" aria-labelledby="intro-title">
+        <p class="async-section-kicker">Servicios disponibles</p>
+        <h2 id="intro-title">Consulta el servidor en tiempo real</h2>
+        <p>
+            Cada acción construye su URL, realiza una petición <code>fetch</code> y actualiza únicamente el área correspondiente.
+            La página permanece visible y puedes ejecutar otra consulta mientras una respuesta está pendiente.
+        </p>
+    </section>
+
+    <section class="service-grid" aria-label="Acciones disponibles">
+        <article class="service-card" data-service-card="greeting">
+            <div class="service-card__heading">
+                <span class="service-card__number">01</span>
+                <h3>Saludo</h3>
+            </div>
+            <p class="service-card__description">
+                Envía el nombre de una persona a <code>/greeting</code>.
+            </p>
+            <form class="service-form" data-service-form="greeting">
+                <label for="greeting-name">Nombre</label>
+                <input
+                        id="greeting-name"
+                        name="name"
+                        type="text"
+                        autocomplete="name"
+                        placeholder="Ej. Camilo"
+                        required
+                >
+                <button class="service-button" type="submit">
+                    Solicitar saludo
+                </button>
+            </form>
+            <p class="service-status" data-service-status aria-live="polite"></p>
+        </article>
+
+        <article class="service-card" data-service-card="square">
+            <div class="service-card__heading">
+                <span class="service-card__number">02</span>
+                <h3>Cuadrado</h3>
+            </div>
+            <p class="service-card__description">
+                Calcula el cuadrado de un número usando <code>/square</code>.
+            </p>
+            <form class="service-form" data-service-form="square">
+                <label for="square-value">Número</label>
+                <input
+                        id="square-value"
+                        name="value"
+                        type="number"
+                        step="any"
+                        placeholder="Ej. 5"
+                        required
+                >
+                <button class="service-button" type="submit">
+                    Calcular cuadrado
+                </button>
+            </form>
+            <p class="service-status" data-service-status aria-live="polite"></p>
+        </article>
+
+        <article class="service-card" data-service-card="server-time">
+            <div class="service-card__heading">
+                <span class="service-card__number">03</span>
+                <h3>Hora del servidor</h3>
+            </div>
+            <p class="service-card__description">
+                Consulta la hora actual del servidor mediante <code>/server-time</code>.
+            </p>
+            <form class="service-form" data-service-form="server-time">
+                <button class="service-button" type="submit">
+                    Consultar hora
+                </button>
+            </form>
+            <p class="service-status" data-service-status aria-live="polite"></p>
+        </article>
+
+        <article class="service-card" data-service-card="health">
+            <div class="service-card__heading">
+                <span class="service-card__number">04</span>
+                <h3>Estado del servidor</h3>
+            </div>
+            <p class="service-card__description">
+                Verifica que el servidor esté disponible con <code>/health</code>.
+            </p>
+            <form class="service-form" data-service-form="health">
+                <button class="service-button" type="submit">
+                    Verificar salud
+                </button>
+            </form>
+            <p class="service-status" data-service-status aria-live="polite"></p>
+        </article>
+    </section>
+
+    <section class="feedback-layout" aria-label="Resultados y errores">
+        <section class="feedback-panel feedback-panel--success" aria-labelledby="results-title">
+            <div class="feedback-panel__heading">
+                <div>
+                    <p class="async-section-kicker">Respuestas positivas</p>
+                    <h2 id="results-title">Resultados</h2>
+                </div>
+                <span class="feedback-panel__badge" id="result-count">0</span>
+            </div>
+            <div class="feedback-list" id="results-list" aria-live="polite" aria-label="Resultados exitosos">
+                <p class="feedback-empty" id="results-empty">Todavía no hay resultados. Ejecuta una acción para comenzar.</p>
+            </div>
+        </section>
+
+        <section class="feedback-panel feedback-panel--error" aria-labelledby="errors-title">
+            <div class="feedback-panel__heading">
+                <div>
+                    <p class="async-section-kicker">Validación y errores</p>
+                    <h2 id="errors-title">Mensajes</h2>
+                </div>
+                <span class="feedback-panel__badge" id="error-count">0</span>
+            </div>
+            <div class="feedback-list" id="errors-list" aria-live="assertive" aria-label="Errores y avisos">
+                <p class="feedback-empty" id="errors-empty">Aquí aparecerán los datos inválidos, errores HTTP y fallos de red.</p>
+            </div>
+        </section>
+    </section>
+</main>
+
+<footer class="async-footer">
+    <p>Cliente de prueba para <code>HttpServer</code> · Puerto esperado: <code>35000</code></p>
+</footer>
+</body>
+</html>
+

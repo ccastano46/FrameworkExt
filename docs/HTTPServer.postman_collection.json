@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "881fc456-d8c4-4426-b891-ff4d9906bac1",
+    "name": "HTTPServer",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "54255631",
+    "_collection_link": "https://go.postman.co/collection/54255631-881fc456-d8c4-4426-b891-ff4d9906bac1?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "http://localhost:35000/greeting",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:35000/hello",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "35000",
+          "path": [
+            "hello"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:35000/square",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:35000/square?value=5",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "35000",
+          "path": [
+            "square"
+          ],
+          "query": [
+            {
+              "key": "value",
+              "value": "5"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:35000/server-time",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:35000/time",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "35000",
+          "path": [
+            "time"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:35000/health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:35000/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "35000",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:35000/index.html",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:35000/index.html",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "35000",
+          "path": [
+            "index.html"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

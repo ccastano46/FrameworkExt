@@ -1,0 +1,577 @@
+/* ============================================
+   MOBILE-FIRST CSS ARCHITECTURE
+   ECUADOR-IN | Pedidos solidarios
+   ============================================ */
+
+/* ============================================
+   1. RESET & BASE STYLES
+   ============================================ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================
+   2. CSS VARIABLES (DESIGN SYSTEM)
+   ============================================ */
+
+:root {
+    --color-olive:       #687B59;
+    --color-olive-dark:  #506343;
+    --color-olive-light: #DDE5D8;
+    --color-cream:       #F6F8F3;
+    --color-white:       #FFFFFF;
+    --color-ink:         #334033;
+    --color-muted:       #667064;
+    --color-border:      #D8DFD3;
+    --color-focus:       #2F5132;
+    --color-error:       #A33A32;
+
+    --global-padding:    20px;
+    --internal-padding: 16px;
+    --mini-padding:      8px;
+
+    --global-spacing:    40px;
+    --medium-spacing:    28px;
+    --internal-spacing:  16px;
+    --mini-spacing:      8px;
+
+    --global-radius:     4px;
+    --mini-radius:       2px;
+}
+
+/* ============================================
+   3. HTML & BODY
+   ============================================ */
+
+html {
+    min-width: 320px;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   4. GLOBAL ELEMENTS
+   ============================================ */
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3 {
+    overflow-wrap: break-word;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--color-ink);
+    line-height: 1.2;
+}
+
+a {
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ============================================
+   5. HEADER & BRAND
+   ============================================ */
+
+.site-header {
+    background-color: var(--color-olive);
+    color: var(--color-white);
+}
+
+.site-header__bar,
+.hero {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-right: var(--global-padding);
+    padding-left: var(--global-padding);
+}
+
+.site-header__bar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: var(--internal-padding);
+    padding-bottom: var(--internal-padding);
+}
+
+.brand {
+    display: inline-flex;
+    flex-direction: column;
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.brand__name {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 24px;
+    letter-spacing: 0.06em;
+    line-height: 1;
+}
+
+.brand__signature {
+    align-self: flex-end;
+    margin-top: 2px;
+    font-family: 'Brush Script MT', 'Segoe Script', cursive;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.brand__heart {
+    color: var(--color-white);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 0.8;
+}
+
+.hero {
+    padding-top: var(--global-spacing);
+    padding-bottom: 48px;
+}
+
+.eyebrow,
+.section-kicker {
+    color: var(--color-olive-dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.hero .eyebrow {
+    color: var(--color-olive-light);
+}
+
+.hero h1 {
+    max-width: 680px;
+    margin-top: var(--internal-spacing);
+    color: var(--color-white);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1.08;
+}
+
+.hero__description {
+    max-width: 620px;
+    margin-top: var(--internal-spacing);
+    color: #F0F4ED;
+    font-size: 16px;
+}
+
+.hero__link {
+    display: inline-block;
+    margin-top: var(--medium-spacing);
+    padding: 12px 20px;
+    border: 1px solid var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-olive-dark);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hero__link:focus-visible,
+.whatsapp-link:focus-visible,
+.site-footer a:focus-visible {
+    outline: 3px solid #C9E4B9;
+    outline-offset: 3px;
+}
+
+/* ============================================
+   6. MAIN CONTENT
+   ============================================
+   Mobile-first: one column by default.
+   ============================================ */
+
+main {
+    overflow: hidden;
+}
+
+.campaign,
+.menu-section,
+.order-section {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: var(--global-spacing) var(--global-padding);
+}
+
+.campaign {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.campaign h2,
+.section-heading h2,
+.order-section h2 {
+    margin-top: var(--mini-spacing);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.campaign p:last-child,
+.section-heading > p:last-child,
+.order-section__intro > p:last-child {
+    max-width: 720px;
+    margin-top: var(--internal-spacing);
+    color: var(--color-muted);
+    font-size: 15px;
+}
+
+/* ============================================
+   7. FOOD MENU
+   ============================================ */
+
+.menu-section {
+    padding-bottom: var(--medium-spacing);
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--medium-spacing);
+    margin-top: var(--medium-spacing);
+}
+
+.food-card {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    box-shadow: 0 5px 14px rgba(80, 99, 67, 0.08);
+}
+
+.food-card__figure {
+    position: relative;
+    background-color: var(--color-olive-light);
+}
+
+.food-card__image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.food-card__caption {
+    position: absolute;
+    right: var(--internal-padding);
+    bottom: var(--internal-padding);
+    padding: 4px var(--mini-padding);
+    background-color: rgba(80, 99, 67, 0.92);
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.food-card__content {
+    padding: var(--internal-padding);
+}
+
+.food-card__number {
+    color: var(--color-olive);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+}
+
+.food-card h3 {
+    margin-top: 2px;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.food-card__description {
+    min-height: 48px;
+    margin-top: var(--mini-spacing);
+    color: var(--color-muted);
+    font-size: 14px;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--internal-spacing);
+    margin-top: var(--internal-spacing);
+    padding-top: var(--internal-spacing);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-ink);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.quantity-control input {
+    width: 72px;
+    height: 42px;
+    padding: 0 var(--mini-padding);
+    border: 1px solid var(--color-border);
+    border-radius: var(--mini-radius);
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    text-align: center;
+}
+
+.quantity-control input:focus,
+.form-field input:focus {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 1px;
+    border-color: var(--color-focus);
+}
+
+/* ============================================
+   8. ORDER FORM
+   ============================================ */
+
+.order-section {
+    background-color: var(--color-olive-light);
+}
+
+.order-section__intro h2 {
+    max-width: 740px;
+}
+
+.order-form {
+    margin-top: var(--medium-spacing);
+    padding: var(--internal-padding);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--internal-spacing);
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mini-spacing);
+    color: var(--color-ink);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-field small {
+    color: var(--color-muted);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.form-field input {
+    width: 100%;
+    min-height: 44px;
+    padding: var(--mini-padding) 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--mini-radius);
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+}
+
+.delivery-note {
+    margin-top: var(--internal-spacing);
+    color: var(--color-muted);
+    font-size: 13px;
+}
+
+.submit-button,
+.whatsapp-link {
+    display: inline-block;
+    margin-top: var(--internal-spacing);
+    padding: 12px 18px;
+    border: 1px solid var(--color-olive-dark);
+    border-radius: var(--mini-radius);
+    background-color: var(--color-olive-dark);
+    color: var(--color-white);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.submit-button {
+    width: 100%;
+}
+
+.form-status {
+    min-height: 22px;
+    margin-top: var(--mini-spacing);
+    color: var(--color-error);
+    font-size: 13px;
+}
+
+.order-result {
+    margin-top: var(--medium-spacing);
+    padding: var(--internal-padding);
+    border-left: 4px solid var(--color-olive-dark);
+    background-color: var(--color-white);
+}
+
+.order-result h3 {
+    margin-top: var(--mini-spacing);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.order-result > p:not(.section-kicker) {
+    margin-top: var(--internal-spacing);
+    color: var(--color-muted);
+    font-size: 14px;
+    white-space: pre-line;
+}
+
+/* ============================================
+   9. FOOTER
+   ============================================
+ */
+
+.site-footer {
+    padding: var(--global-spacing) var(--global-padding);
+    background-color: var(--color-olive-dark);
+    color: var(--color-white);
+    text-align: center;
+}
+
+.site-footer p {
+    font-size: 14px;
+}
+
+.site-footer p + p {
+    margin-top: var(--mini-spacing);
+}
+
+.site-footer a {
+    font-weight: 700;
+}
+
+.site-footer__cause {
+    color: var(--color-olive-light);
+    font-size: 13px !important;
+}
+
+/* ============================================
+   10. RESPONSIVE ENHANCEMENTS
+   ============================================
+ */
+
+@media (hover: hover) and (pointer: fine) {
+    .hero__link:hover {
+        background-color: transparent;
+        color: var(--color-white);
+    }
+
+    .submit-button:hover,
+    .whatsapp-link:hover {
+        border-color: var(--color-olive);
+        background-color: var(--color-olive);
+    }
+}
+
+@media (min-width: 640px) {
+    :root {
+        --global-padding: 32px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .campaign h2,
+    .section-heading h2,
+    .order-section h2 {
+        font-size: 34px;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .food-card__image {
+        aspect-ratio: 4 / 3;
+    }
+
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-field--full {
+        grid-column: 1 / -1;
+    }
+
+    .submit-button {
+        width: auto;
+    }
+}
+
+@media (min-width: 900px) {
+    .site-header__bar {
+        padding-top: 24px;
+    }
+
+    .hero {
+        padding-top: 72px;
+        padding-bottom: 80px;
+    }
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .campaign,
+    .menu-section,
+    .order-section {
+        padding-top: 64px;
+        padding-bottom: 64px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
+
