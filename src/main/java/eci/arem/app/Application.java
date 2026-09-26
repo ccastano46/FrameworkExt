@@ -69,6 +69,15 @@ public class Application {
                 resp.setBody((String.valueOf(Math.E)).getBytes(StandardCharsets.UTF_8))
         );
 
+        get("/slow", (req, resp) -> {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            resp.setBody("Done".getBytes(StandardCharsets.UTF_8));
+        });
+
         if(environment.equals("development") || environment.equals("dev")){
             get("/shutdown", (req, resp) -> {
                 resp.setBody(("Goodbye").getBytes(StandardCharsets.UTF_8));
