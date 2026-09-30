@@ -201,14 +201,11 @@ The path `/` returns the static HTML file `async-client.html`, which provides th
 
 ### Local demonstration video
 
-You can find the vide demostration of the application in the `docs/videos/locally.mov` file.
+https://drive.google.com/file/d/1jzn_WKrlBnXeHMIIiCiline0wKmi9UH9/view?usp=sharing
 
 ## Cloud deployment
 
-<!-- Replace the placeholder below with the uploaded cloud deployment video. -->
-
-You can find the vide demostration of the application in the `docs/videos/deployment.mov` file.
-
+https://drive.google.com/file/d/1bnjmksqpXxV0nw3uCCmCEgcAMKTbSIUU/view?usp=sharing
 ## Project structure
 
 The repository follows the standard Maven layout. The Java server code is under `src/main/java`, the resources served to browsers are under `src/main/resources/public`, and the root `Dockerfile` packages the executable JAR together with the public resources. The architecture of the Java classes remains the same as in `WebFramework`; the extension adds Docker-based packaging and virtual-thread execution inside `HttpServer`.
