@@ -44,7 +44,7 @@ The result is a building that can keep many conversations in progress at the sam
 
 The following UML diagram represents the main classes and relationships in the framework architecture.
 
-![architecture.png]
+![architecture.png](docs/images/architecture.png)
 
 ## Component responsibilities
 
